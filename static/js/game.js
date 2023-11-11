@@ -48,6 +48,15 @@ document.addEventListener('DOMContentLoaded', function() {
         loadQuestion(currentQuestionId);
     }
     
+    function pluralizeDays(count) {
+        if (count % 10 === 1 && count % 100 !== 11) {
+            return 'день';
+        } else if ([2, 3, 4].includes(count % 10) && ![12, 13, 14].includes(count % 100)) {
+            return 'дня';
+        } else {
+            return 'дней';
+        }
+    }
 
     function displayEndGame(reason) {
         document.getElementById('question-text').style.display = 'none';
@@ -56,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('option2').style.display = 'none';
         let message = "Игра завершена! ";
         message += reason === "resourcesDepleted" ? "Один из ваших ресурсов исчерпан." : "Вы ответили на все вопросы.";
-        message += ` Вы ответили на ${answeredQuestionsCount} вопросов.`;
+        message += ` Вы были системным аналитиком ${answeredQuestionsCount} ${pluralizeDays(answeredQuestionsCount)}.`;
     
         let endGameContainer = document.getElementById('end-game-container');
         endGameContainer.innerHTML = `<p>${message}</p><button id="restart-button">Сыграть ещё раз</button>`;
