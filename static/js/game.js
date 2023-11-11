@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentQuestionId = 0;
     let answeredQuestionsCount = 0;
     let lastConsequences = ""; // Начальное значение - пустая строка
+    let nextQuestionData = null; // Переменная для хранения данных следующего вопроса
+
+
     loadQuestion(currentQuestionId);
 
     // Добавление обработчиков событий для новых кнопок
@@ -15,15 +18,41 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             let response = await fetch(`/get_question/${id}`);
             let question = await response.json();
+
             if (question.end) {
                 displayEndGame("questionsEnded");
             } else if (question.text) {
                 displayQuestion(question);
+
+                // Загружаем следующий вопрос заранее
+                preloadNextQuestion(id + 1);
             }
         } catch (error) {
             console.error('Ошибка:', error);
         }
     }
+
+        // Функция для предварительной загрузки следующего вопроса
+        async function preloadNextQuestion(id) {
+            try {
+                let response = await fetch(`/get_question/${id}`);
+                let questionData = await response.json();
+
+                if (questionData.end) {
+                    // Логика обработки конца игры
+                    nextQuestionData = null;
+                } else {
+                    nextQuestionData = questionData;
+
+                    if (nextQuestionData.image) {
+                        let img = new Image();
+                        img.src = nextQuestionData.image;
+                    }
+                }
+            } catch (error) {
+                console.error('Ошибка при предварительной загрузке:', error);
+            }
+        }
 
     // Функция для отображения вопроса и его вариантов ответа
     function displayQuestion(question) {
@@ -42,11 +71,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Обработка выбора пользователя и обновление шкал
     function handleChoice(option) {
-        lastConsequences = option.consequences; // Сохраняем последствия выбранного варианта
+        lastConsequences = option.consequences;
         updateScales(option.effects);
         answeredQuestionsCount++;
         currentQuestionId++;
-        loadQuestion(currentQuestionId);
+
+        if (nextQuestionData) {
+            displayQuestion(nextQuestionData);
+            preloadNextQuestion(currentQuestionId + 1);
+        } else {
+            displayEndGame("questionsEnded"); // или другая логика для конца игры
+        }
     }
     
     function pluralizeDays(count) {
