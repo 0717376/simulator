@@ -12,16 +12,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Функция для загрузки вопроса
     function loadQuestion(id) {
-        fetch(`/get_question/${id}`)
-            .then(response => response.json())
-            .then(question => {
-                if (question.end) {
-                    displayEndGame("questionsEnded");
-                } else if (question.text) {
-                    displayQuestion(question);
-                }
-            })          
-            .catch(error => console.error('Ошибка:', error));
+        // Добавляем класс 'hidden' для начала исчезновения
+        document.getElementById('main-content').classList.add('hidden');
+
+        setTimeout(() => {
+            fetch(`/get_question/${id}`)
+                .then(response => response.json())
+                .then(question => {
+                    if (question.end) {
+                        displayEndGame("questionsEnded");
+                    } else if (question.text) {
+                        displayQuestion(question);
+                    }
+
+                    // Удаляем класс 'hidden' и добавляем 'fade' для появления
+                    document.getElementById('main-content').classList.remove('hidden');
+                    document.getElementById('main-content').classList.add('fade');
+                })          
+                .catch(error => console.error('Ошибка:', error));
+        }, 250); // Соответствует времени анимации
     }
 
     // Функция для отображения вопроса и его вариантов ответа
@@ -105,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             container.classList.remove('show-change');
             container.style.removeProperty('--change-color'); // Удаляем индивидуальный стиль
-        }, 2500); // Сколько времени длится анимация
+        }, 3000); // Сколько времени длится анимация
     }
     
 

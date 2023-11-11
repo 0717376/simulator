@@ -72,11 +72,11 @@ button {
     transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #0056b3;
+
+button:focus {
+    background-color: #007bff; /* тот же цвет, что и в нормальном состоянии */
+    outline: none; /* убрать контур, если он не нужен */
 }
-
-
 
 /* Стили для шкал состояния */
 .status-bar {
@@ -108,6 +108,7 @@ progress {
 /* Стили для вопросов и вариантов ответов */
 .question-container {
     margin-top: 20px;
+    
 }
 
 .question-container img {
@@ -256,3 +257,12 @@ progress {
     line-height: 1.6;
 }
 
+
+.fade {
+    opacity: 1;
+    transition: opacity 0.25s ease-in-out;
+}
+
+.hidden {
+    opacity: 0;
+}
