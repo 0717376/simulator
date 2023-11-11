@@ -145,7 +145,7 @@ progress {
 .status-bar::after {
     content: attr(data-change);
     position: absolute;
-    left: 100%; /* Позиционируем справа от текста */
+    left: 0%; /* Позиционируем справа от текста */
     top: 0;
     white-space: nowrap; /* Предотвращаем перенос текста */
     opacity: 0; /* начальное состояние невидимо */
