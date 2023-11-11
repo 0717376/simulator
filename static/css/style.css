@@ -25,6 +25,7 @@ body {
     background: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    border-radius: 5px; /* Небольшое закругление углов */
 }
 
 /* Медиа-запрос для мобильных устройств */
@@ -76,13 +77,21 @@ button:hover {
 
 /* Стили для шкал состояния */
 .status-bar {
-    margin: 20px 0;
+    margin: 5px 0;
     position: relative;
 }
 
 .status-bar label {
     display: block;
     margin-bottom: 5px;
+}
+
+.status-bars {
+    margin: 30px 0;
+    position: relative;
+    border-radius: 5px; /* Небольшое закругление углов */
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 progress {
@@ -99,12 +108,14 @@ progress {
     max-width: 100%;
     height: auto;
     margin-bottom: 20px;
+    border-radius: 5px; /* Небольшое закругление углов */
 }
 
 .option-btn {
     width: 100%;
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 0px;
+    margin-left: 0px;
 }
 
 .game-header {
@@ -145,7 +156,7 @@ progress {
 .status-bar::after {
     content: attr(data-change);
     position: absolute;
-    left: 0%; /* Позиционируем справа от текста */
+    right: 0%; /* Позиционируем справа от текста */
     top: 0;
     white-space: nowrap; /* Предотвращаем перенос текста */
     opacity: 0; /* начальное состояние невидимо */
@@ -173,4 +184,3 @@ progress {
     color: var(--change-color); /* Используем переменную для цвета */
     /* Остальные стили */
 }
-

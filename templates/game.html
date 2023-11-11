@@ -11,7 +11,6 @@
     <div class="game-container">
         <div class="game-header">
             <!--<button id="restart-game-button" class="header-btn">Начать заново</button>-->
-            <button id="go-home-button" class="header-btn">На главную</button>
             <h2>Симулятор аналитика</h2>
         </div>
 
@@ -19,8 +18,10 @@
         <div class="question-container">
             <img id="question-image" src="" alt="Изображение вопроса">
             <p id="question-text">Текст вопроса здесь...</p>
-            <button id="option1" class="option-btn">Вариант 1</button>
-            <button id="option2" class="option-btn">Вариант 2</button>
+            <div id="question-image">
+                <button id="option1" class="option-btn">Вариант 1</button>
+                <button id="option2" class="option-btn">Вариант 2</button>
+            </div>
         </div>
 
         <div id="end-game-container" style="display: none;"></div>
@@ -41,8 +42,8 @@
                 <progress id="satisfaction" value="50" max="100"></progress>
             </div>
 
-
         </div>
+        <button id="go-home-button" class="header-btn">На главную</button>
     </div>
 
     <script src="/static/js/game.js"></script>
