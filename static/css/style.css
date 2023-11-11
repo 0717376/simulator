@@ -27,6 +27,17 @@ body {
     text-align: center;
 }
 
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 600px) {
+    .container .game-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    /* Другие стили, специфичные для мобильных устройств */
+}
+
+
 /* Стили для заголовков */
 h1 {
     font-family: 'Roboto', sans-serif;
@@ -134,7 +145,7 @@ progress {
 .status-bar::after {
     content: attr(data-change);
     position: absolute;
-    left: 78%; /* Позиционируем справа от текста */
+    left: 93%; /* Позиционируем справа от текста */
     top: 0;
     white-space: nowrap; /* Предотвращаем перенос текста */
     opacity: 0; /* начальное состояние невидимо */
@@ -163,14 +174,3 @@ progress {
     /* Остальные стили */
 }
 
-.red-progress-bar::-webkit-progress-bar {
-    background-color: lightgray;
-}
-
-.red-progress-bar::-webkit-progress-value {
-    background-color: red;
-}
-
-.red-progress-bar::-moz-progress-bar {
-    background-color: red;
-}
