@@ -55,7 +55,9 @@ h2 {
     margin-bottom: 20px;
 }
 
-
+button:hover {
+    background-color: #0056b3;
+}
 
 /* Стили для кнопок */
 button {
@@ -74,10 +76,7 @@ button:hover {
     background-color: #0056b3;
 }
 
-button:focus {
-    background-color: #007bff; /* тот же цвет, что и в нормальном состоянии */
-    outline: none; /* убрать контур, если он не нужен */
-}
+
 
 /* Стили для шкал состояния */
 .status-bar {
