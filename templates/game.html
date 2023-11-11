@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Симулятор Аналитика</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <!--<button id="restart-game-button" class="header-btn">Начать заново</button>-->
+            <button id="go-home-button" class="header-btn">На главную</button>
+            <h2>Симулятор аналитика</h2>
+        </div>
+
+        <!-- Блок с вопросом -->
+        <div class="question-container">
+            <img id="question-image" src="" alt="Изображение вопроса">
+            <p id="question-text">Текст вопроса здесь...</p>
+            <button id="option1" class="option-btn">Вариант 1</button>
+            <button id="option2" class="option-btn">Вариант 2</button>
+        </div>
+
+        <div id="end-game-container" style="display: none;"></div>
+        
+
+        <!-- Блок с шкалами состояния -->
+        <div class="status-bars">
+            <div class="status-bar" id="reputation-container">
+                <label for="reputation">Репутация и Профессионализм:</label>
+                <progress id="reputation" value="50" max="100"></progress>
+            </div>
+            <div class="status-bar" id="resources-container">
+                <label for="resources">Ресурсы (Время и Бюджет):</label>
+                <progress id="resources" value="50" max="100"></progress>
+            </div>
+            <div class="status-bar" id="satisfaction-container">
+                <label for="satisfaction">Удовлетворенность Заказчиков:</label>
+                <progress id="satisfaction" value="50" max="100"></progress>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script src="/static/js/game.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+{
+    "0": {
+        "text": "Какой подход выбрать для нового проекта? Если всё такое вкусное и всё такое интересно. А вообще, это етст на очень большое количество тектса",
+        "image": "/static/images/image1.jpg",
+        "options": [
+            {
+                "text": "Консервативный (безопасный)",
+                "effects": {
+                    "reputation": 1,
+                    "resources": 0,
+                    "satisfaction": -1
+                }
+            },
+            {
+                "text": "Инновационный (рискованный)",
+                "effects": {
+                    "reputation": -1,
+                    "resources": -200,
+                    "satisfaction": 2
+                }
+            }
+        ]
+    },
+    "1": {
+        "text": "Вы сталкиваетесь с проблемой в проекте. Как вы её решите?",
+        "image": "/static/images/image2.jpg",
+        "options": [
+            {
+                "text": "Провести дополнительный анализ и найти оптимальное решение",
+                "effects": {
+                    "reputation": 2,
+                    "resources": -1,
+                    "satisfaction": 1
+                }
+            },
+            {
+                "text": "Использовать проверенное решение, несмотря на его ограничения",
+                "effects": {
+                    "reputation": -1,
+                    "resources": 1,
+                    "satisfaction": -1
+                }
+            }
+        ]
+    },
+    "2": {
+        "text": "Как вы распределите бюджет проекта?",
+        "image": "/static/images/image3.jpg",
+        "options": [
+            {
+                "text": "Инвестировать больше в качество",
+                "effects": {
+                    "reputation": 2,
+                    "resources": -2,
+                    "satisfaction": 2
+                }
+            },
+            {
+                "text": "Сосредоточиться на экономии и уменьшении затрат",
+                "effects": {
+                    "reputation": -1,
+                    "resources": 2,
+                    "satisfaction": -2
+                }
+            }
+        ]
+    },
+    "3": {
+        "text": "Как вы распределите бюджет проекта?",
+        "image": "/static/images/image3.jpg",
+        "options": [
+            {
+                "text": "Инвестировать больше в качество",
+                "effects": {
+                    "reputation": 2,
+                    "resources": -2,
+                    "satisfaction": 2
+                }
+            },
+            {
+                "text": "Сосредоточиться на экономии и уменьшении затрат",
+                "effects": {
+                    "reputation": -1,
+                    "resources": 2,
+                    "satisfaction": -100
+                }
+            }
+        ]
+    }
+}
