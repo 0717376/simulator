@@ -18,8 +18,6 @@ def game():
 
 @app.route('/get_question/<int:id>')
 def get_question(id):
-    with open('data/questions.json') as file:
-        questions = json.load(file)
     question = questions.get(str(id))
     if question is None:
         return jsonify({"end": True})
