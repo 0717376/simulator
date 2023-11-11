@@ -98,7 +98,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Функция для обновления шкал состояния
     function updateScales(effects) {
         let reputationBar = document.getElementById('reputation');
-        reputationBar.style.color = 'red'; // Цвет шкалы
         let resourcesBar = document.getElementById('resources');
         let satisfactionBar = document.getElementById('satisfaction');
         
