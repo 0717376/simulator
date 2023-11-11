@@ -186,33 +186,28 @@ progress {
 }
 
 li {
-    background-color: #e7e7e7;
+    background-color: #d7d7d7;
     margin-bottom: 5px;
     padding: 10px;
     border-radius: 5px;
     margin-top: 20px;
 }
 
-#reputation-description {
-    background-color: #f0f8ff;
+.description {
+    background-color: #f7f7f7; /* Светло-серый фон для всех описаний */
     padding: 10px;
-    border-left: 4px solid #0056b3;
-    border-radius: 5px;
+    border-left: 4px solid;
     margin-bottom: 10px;
+}
+
+#reputation-description {
+    border-color: #ffffff; /* Серебристый */
 }
 
 #resources-description {
-    background-color: #fff0f5;
-    padding: 10px;
-    border-left: 4px solid #db7093;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    border-color: #ffffff; /* Светло-серый */
 }
 
 #customer-satisfaction-description {
-    background-color: #f5f5dc;
-    padding: 10px;
-    border-left: 4px solid #bdb76b;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    border-color: #ffffff; /* Средне-серый */
 }
