@@ -9,7 +9,9 @@
                     "reputation": 1,
                     "resources": 0,
                     "satisfaction": -1
-                }
+                },
+                "consequences": "Всё было выбрано безопасно и медленно"
+
             },
             {
                 "text": "Инновационный (рискованный)",
@@ -17,7 +19,8 @@
                     "reputation": -1,
                     "resources": -200,
                     "satisfaction": 2
-                }
+                },
+                "consequences": "Всё было выбрано опасно и быстро!"
             }
         ]
     },

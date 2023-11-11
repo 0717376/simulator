@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     let currentQuestionId = 0;
     let answeredQuestionsCount = 0;
+    let lastConsequences = ""; // Начальное значение - пустая строка
     loadQuestion(currentQuestionId);
 
     // Добавление обработчиков событий для новых кнопок
@@ -25,19 +26,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Функция для отображения вопроса и его вариантов ответа
     function displayQuestion(question) {
+        // Отображаем последствия предыдущего ответа
+        document.getElementById('consequences-text').textContent = lastConsequences;
+    
+        // Отображаем текущий вопрос
         document.getElementById('question-text').textContent = question.text;
-        document.getElementById('question-image').src = question.image; // Обновление картинки
+        document.getElementById('question-image').src = question.image;
         document.getElementById('option1').textContent = question.options[0].text;
         document.getElementById('option2').textContent = question.options[1].text;
-
+    
         document.getElementById('option1').onclick = () => handleChoice(question.options[0]);
         document.getElementById('option2').onclick = () => handleChoice(question.options[1]);
     }
 
     // Обработка выбора пользователя и обновление шкал
     function handleChoice(option) {
+        lastConsequences = option.consequences; // Сохраняем последствия выбранного варианта
         updateScales(option.effects);
-        answeredQuestionsCount++; // Увеличиваем счетчик
+        answeredQuestionsCount++;
         currentQuestionId++;
         loadQuestion(currentQuestionId);
     }
