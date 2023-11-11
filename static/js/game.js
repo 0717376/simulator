@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let lastConsequences = ""; // Начальное значение - пустая строка
     let nextQuestionData = null; // Переменная для хранения данных следующего вопроса
 
+    window.addEventListener('load', function() {
+        document.body.classList.add('loaded');
+    });
 
     loadQuestion(currentQuestionId);
 
@@ -56,6 +59,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Функция для отображения вопроса и его вариантов ответа
     function displayQuestion(question) {
+        let questionContainer = document.getElementById('question-container');
+        // Делаем контейнер видимым
+        questionContainer.style.display = 'block';
+        
+        questionContainer.classList.remove('fade-out');
+        questionContainer.classList.add('fade-in');
+
         // Отображаем последствия предыдущего ответа
         document.getElementById('consequences-text').textContent = lastConsequences;
     
@@ -71,17 +81,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Обработка выбора пользователя и обновление шкал
     function handleChoice(option) {
-        lastConsequences = option.consequences;
-        updateScales(option.effects);
-        answeredQuestionsCount++;
-        currentQuestionId++;
+        let questionContainer = document.getElementById('question-container');
+        questionContainer.classList.remove('fade-in');
+        questionContainer.classList.add('fade-out');
+        
+        setTimeout(() => {
 
-        if (nextQuestionData) {
-            displayQuestion(nextQuestionData);
-            preloadNextQuestion(currentQuestionId + 1);
-        } else {
-            displayEndGame("questionsEnded"); // или другая логика для конца игры
-        }
+            lastConsequences = option.consequences;
+            updateScales(option.effects);
+            answeredQuestionsCount++;
+            currentQuestionId++;
+
+            if (nextQuestionData) {
+                displayQuestion(nextQuestionData);
+                preloadNextQuestion(currentQuestionId + 1);
+            } else {
+                displayEndGame("questionsEnded");
+            }
+        }, 250); // Задержка соответствует длительности анимации
     }
     
     function pluralizeDays(count) {
